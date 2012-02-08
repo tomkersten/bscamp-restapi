@@ -1,0 +1,27 @@
+# Note: Not really "rest"...but...rest-ish
+## not using "controls" (such as forms, no standards for links, etc)
+## those things can be spec'd out...but...we didn't...so it's not "rest"
+
+# API versioning
+## high-level (url-based, mime-type based, fuggit...we're agile)
+## vendor-specific mime-types (accept header)
+### wat? y?
+## How'd we do it?
+### show code for registrar
+### show deprecation/unsupported handling
+### show how layouts tie in (and json_vX, etc)
+
+# Named endpoints
+## wtf are they?
+## why are they cool/nice?
+## notes
+## how we implemented them?
+
+# Misc (tools, tips, etc)
+## documentation links in your response bodies
+### is cucumber good for API integration testing?
+#### looks interesting & feels nice, but not tested with
+     true "external devs"
+### also, people are starting to promote using 'rel'
+## When using JSON, consider using objects unless you *know*
+   the value won't change. evah.
