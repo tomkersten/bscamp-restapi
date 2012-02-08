@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>My Preso</title>
+
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+  <script type="text/javascript" src="./js/coffee-script.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+      setupPreso(false, './');
+  });
+  </script>
+
+</head>
+
+<body>
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">z, ?</td><td>toggle help (this)</td></tr>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">shift-space, &larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>toggle debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c, t</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">n</td><td>toggle notes</td></tr>
+    <tr><td class="key">p</td><td>run preshow</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="one/01_slide/1">
+<h1>Thoughts on "RESTful" APIs</h1>
+
+<h3>@tomkersten</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/2">
+<h1>disclaimer</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/3">
+<h1>Thoughts on RESTful(-ish) APIs</h1>
+
+<h3>@tomkersten</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/4">
+<h1>REST !=  PUT/POST/DELETE</h1>
+
+<h3>most apis lack "hypermedia controls" (forms, links)</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/5">
+<h1>read this:</h1>
+
+<h2>"Building Hypermedia APIs with HTML5 and Node"</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/6">
+<h1>/disclaimer</h1>
+
+<h3>moving on...</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/7">
+<h1>background:</h1>
+
+<h2>we needed to share some files</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/8">
+<h1>background:</h1>
+
+<h2>we needed to share some files</h2>
+
+<h3>dropbox, et al were not acceptable</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/9">
+<h1>enter: RAM</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/10">
+<h1>enter: RAM</h1>
+
+<h3>that's what we called it.</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="one/01_slide/11">
+<h1>topics</h1>
+
+<ul>
+<li>api versioning</li>
+<li>named endpoints</li>
+<li>misc (tools, tips, etc)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/12">
+<h1>api versioning</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/13">
+<h1>popular approaches</h1>
+
+<h3>none, url-based, mime type-based</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/14">
+<h1>vendor-specific mime types</h1>
+
+<h2>all the cool kids are doing it...</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/15">
+<h1>vendor-specific mime types</h1>
+
+<h2>all the cool kids are doing it...</h2>
+
+<h3><a href="http://tools.ietf.org/html/rfc2048#section-2.1.2">and it's kind of in the mime spec</a></h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/16">
+<h1>vendor-specific mime types</h1>
+
+<h2>all the cool kids are doing it...</h2>
+
+<h3><a href="http://tools.ietf.org/html/rfc2048#section-2.1.2">and it's kind of in the mime spec</a></h3>
+
+<h3>...from 15-years ago.</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/17">
+<h1>vendor-specific mime types</h1>
+
+<h3>Accept: application/vnd.company-name.app-name+format</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
+<h1>vendor-specific mime types</h1>
+
+<h3>Accept: application/vnd.resound.ram+json</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/19">
+<h1>where's the versioning?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/20">
+<h1>where's the versioning?</h1>
+
+<h3>Accept: application/vnd.resound.ram+json;version=2</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/21">
+<h1>github-style</h1>
+
+<h3>Accept: application/vnd.github.VERSION.raw+json</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/22">
+<h1>whatevs at this point</h1>
+
+<h3>(no standard defined)</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/23">
+<h1>implementing in rails</h1>
+
+<h3>one approach</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="one/01_slide/24">
+<h2>(quick sidenote)</h2>
+
+<h2><code>Mime::Type.register "application/pdf", :princely</code></h2>
+
+<h3>(maps "/resource-id.pdf" &#x2192; "show.princely")</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="one/01_slide/25">
+<h2>(one more)</h2>
+
+<h2><code>ActionView::Template.register_template_handler :princely, JsonifyBuilder</code></h2>
+
+<h3>(says to use JsonifyBuilder to render view files ending in "princely")</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/26">
+<h1>One approach</h1>
+
+<h3>settings.yml &#x2192; mime_type_registrar.rb &#x2192; mime_types.rb</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="one/01_slide/27">
+<pre class="sh_ruby"><code># config/settings.yml
+supported_api_versions: [3]
+deprecated_api_versions: [2]
+unsupported_api_versions: [1]</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/28">
+<pre class="sh_ruby"><code># lib/ram_api.rb
+# light wrapper for API-values in settings.yml
+module RamAPI
+  extend self
+
+  def current_version
+    Settings.supported_api_versions.max
+  end
+
+  def supported_versions
+    Settings.supported_api_versions
+  end
+  ...
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/29">
+<pre class="sh_ruby"><code># lib/ram_api.rb
+# light wrapper for API-values in settings.yml
+module RamAPI
+  ...
+  def deprecated_versions
+    Settings.deprecated_api_versions
+  end
+
+  def deprecated_version?(version)
+    deprecated_versions.include?(version.to_i)
+  end
+
+  def supported_content_type?(content_type)
+    self.supported_content_types.include?(content_type) ||
+    self.deprecated_content_types.include?(content_type)
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/30">
+<pre class="sh_ruby"><code># lib/mime_type_registrar.rb
+# wraps up mime type registration and deprecation tracking
+module MimeTypeRegistrar
+  extend self
+  BASE_MIME_TYPE = "application/vnd.resound.ram+json"
+
+  def versioned_mime(version_number)
+    "#{BASE_MIME_TYPE};version=#{version_number}"
+  end
+  ...</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/31">
+<pre class="sh_ruby"><code># lib/mime_type_registrar.rb
+# wraps up mime type registration and tracks deprecations
+module MimeTypeRegistrar
+  ...
+  # wrapped in convenience methods
+  def register(type, file_ext)
+    Mime::Type.register type, file_ext.to_sym
+
+    ActionView::Template.register_template_handler file_ext,
+        ActionView::Template::Handlers::JsonifyBuilder
+
+    self.supported_content_types &lt;&lt; type
+  end
+  private :register
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/32">
+<pre class="sh_ruby"><code># config/initializers/mime_types.rb
+# Set up mime types for app
+include MimeTypeRegistrar
+
+register_default_api_version(RamAPI.current_version)
+
+RamAPI.supported_versions.each do |version|
+  register_api_version(version)
+end
+
+RamAPI.deprecated_versions.each do |version|
+  register_deprecated_api_version(version)
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/33">
+<h1>what does that give us?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/34">
+<h2>Accept: "vnd/resound.ram+json;version=2"</h2>
+
+<h3>renders: "show.json_v2"</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/35">
+<h2>Accept: "vnd/resound.ram+json"</h2>
+
+<h3>renders: "show.json_v[current_version]"</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/36">
+<h1>Clients lock in on a version</h1>
+
+<h2>...and don't break on your updates*</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/37">
+<h1>Clients lock in on a version</h1>
+
+<h2>...and don't break on your updates&#x2217;</h2>
+
+<h3>&#x2217; unless your domain model changes significantly</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/38">
+<h2>bonus: layouts for free</h2>
+
+<h3>...nested in versioned layout files (layouts/application.json_v2)</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/39">
+<pre class="sh_ruby"><code># app/views/layouts/application.json_v1
+json.content do
+  json.ingest! yield
+end
+
+# app/views/layouts/application.json_v2
+json.content do
+  json.ingest! yield
+  json.tx_meta @tx_meta
+  json.developer_notes @developer_notes
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/40">
+<h2>bonus: "free" deprecation info</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/41">
+<pre class="sh_ruby"><code>class ApplicationController &lt; ActionController::Base
+  before_filter :check_for_deprecated_api_version
+
+  ...
+  def check_for_deprecated_api_version
+    if RamAPI.deprecated_version?(req_vrsion)
+      developer_notes &lt;&lt; "v#{req_vrsion} of API is deprectd."
+      developer_notes &lt;&lt; "Please upgrade to v#{cur_vrsn}."
+    end
+  end
+  ...
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/42">
+<h2>library/client devs can have a test looking for deprecations</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/43">
+<h2>bonus: easy to enforce supported versions</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/44">
+<pre class="sh_ruby"><code>class ApplicationController &lt; ActionController::Base
+  ...
+  def enforce_supported_formats
+    render_not_acceptable &amp;&amp; return unless supported_format_requested?
+  end
+
+  def supported_format_requested?
+    MimeTypeRegistrar.supported_content_type?(request.format)
+  end
+  ...
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/45">
+<h1>/api versioning</h1>
+
+<h3>questions/thoughts?</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/46">
+<h1>named endpoints</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/47">
+<h1>named endpoints</h1>
+
+<h2>wtf are they?</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/48">
+<h1>hateoas</h1>
+
+<h3>hypermedia as the engine of application state</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/49">
+<h1>what?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/50">
+<h1>hypermedia =~ "links"</h1>
+
+<h3>stop hardcoding URLs in your clients</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/51">
+<h1>hypermedia =~ "links"</h1>
+
+<h3>stop hardcoding URLs in your clients</h3>
+
+<h3>there's more to it than that, but...</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/52">
+<h1>an example...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/53">
+<pre class="sh_javascript"><code>// app/views/landing/index.json_v3 (rendered)
+{
+  "content": {
+    "links": {
+      "create_collection": {
+        "url": "/collections"
+      },
+      "list_collections": {
+        "url": "/collections"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/54">
+<h1>want to see all collections?</h1>
+
+<h3>hit the URL at <code>content.links.list_collections.url</code></h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/55">
+<h1>it's that simple...</h1>
+
+<h3>use it for all your links*</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/56">
+<h1>why?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/57">
+<h2>freedom to change urls on server</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/58">
+<h2>if you're really good (organized)...</h2>
+
+<h3>you can optimize slow areas of your API</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/59">
+<h2>if you're really good (organized)...</h2>
+
+<h3>you can optimize slow areas of your API</h3>
+
+<h3>...without breaking any clients</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/60">
+<h1>fancy.</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/61">
+<h1>remember this slide...</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/62">
+<h1>it's that simple...</h1>
+
+<h3>use it for all your links*</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/63">
+<h2>&#x2217; using <code>rel</code> for link names is kind of "standard"</h2>
+
+<h3>...or at least more well-known</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/64">
+<h2>&#x2217; using <code>rel</code> for link names is kind of "standard"</h2>
+
+<h3>or at least more well-known</h3>
+
+<h3>(ie: i've never seen the approach i showed in a json api)</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/65">
+<h1>why didn't we use <code>rel</code> then?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/66">
+<h1>api documentation</h1>
+
+<h3>testing out cucumber &#x2192; RelishApp</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/67">
+<h1>api documentation</h1>
+
+<h3>testing out cucumber &#x2192; RelishApp</h3>
+
+<h3>...with links to docs in API responses</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code smaller" ref="one/01_slide/68">
+<pre class="sh_javascript"><code>// app/views/landing/index.json_v3 (rendered)
+{
+  "content": {
+    "links": {
+      "create_collection": {
+        "url": "/collections",
+        "docs": "https://relishapp.com/acnt/prj/feature-url"
+      }
+      ...
+    }
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/69">
+<h1>show example</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/70">
+<h1>seems neat...</h1>
+
+<h3>but we've only tested it on ourselves</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/71">
+<h1>one last note</h1>
+
+<h3>use json objects unless you <strong>know</strong> the value structure won't change</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/72">
+<h1>one last note</h1>
+
+<h3>use json objects unless you <strong>know</strong> the value structure won't change</h3>
+
+<h3>(we changed to the <code>url</code> and <code>docs</code> structure, it required an api version bump)</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/73">
+<h1>that's all i have.</h1>
+
+<h3>questions/comments?</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/74">
+<h1>thanks.</h1>
+
+<h3>let's have a beer.</h3>
+</div>
+</div></div>
+
+</body>
+</html>
