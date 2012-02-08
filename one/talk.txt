@@ -11,12 +11,6 @@
 ### show deprecation/unsupported handling
 ### show how layouts tie in (and json_vX, etc)
 
-# Named endpoints
-## wtf are they?
-## why are they cool/nice?
-## notes
-## how we implemented them?
-
 # Misc (tools, tips, etc)
 ## documentation links in your response bodies
 ### is cucumber good for API integration testing?

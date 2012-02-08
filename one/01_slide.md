@@ -3,6 +3,10 @@
 ### @tomkersten
 
 !SLIDE
+# disclaimer
+
+
+!SLIDE
 # Thoughts on RESTful(-ish) APIs #
 ### @tomkersten
 
@@ -47,16 +51,22 @@
 
 !SLIDE
 # popular approaches
-### none (fuggit...we're agile), url-based, mime-type based
+### none, url-based, mime type-based
 
 !SLIDE
 # vendor-specific mime types
-## using the ('accept' header)
+## all the cool kids are doing it...
 
 !SLIDE
 # vendor-specific mime types
-### all the cool kids are doing it...
+## all the cool kids are doing it...
 ### ([and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2))
+
+!SLIDE
+# vendor-specific mime types
+## all the cool kids are doing it...
+### ([and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2))
+### ...from 15-years ago.
 
 !SLIDE
 # vendor-specific mime types
@@ -245,7 +255,7 @@
       def check_for_deprecated_api_version
         if RamAPI.deprecated_version?(req_vrsion)
           developer_notes << "v#{req_vrsion} of API is deprectd."
-          developer_notes << "Please upgrade v#{cur_vrsn}."
+          developer_notes << "Please upgrade to v#{cur_vrsn}."
         end
       end
       ...
@@ -341,7 +351,8 @@
 !SLIDE
 
 # it's that simple...
-### use it* for all your links
+### use it for all your links*
+
 
 !SLIDE
 
@@ -350,29 +361,110 @@
 
 !SLIDE
 
-# freedom to change urls on server
+## freedom to change urls on server
 
 
 !SLIDE
 
 ## if you're really good (organized)...
-### you can optimize slow areas
+### you can optimize slow areas of your API
 
 
 !SLIDE
 
 ## if you're really good (organized)...
-### you can optimize slow areas
+### you can optimize slow areas of your API
 ### ...without breaking any clients
 
 
 !SLIDE
 
+# fancy.
+
+!SLIDE
+
+# remember this slide...
+
+!SLIDE
+
+# it's that simple...
+### use it for all your links*
 
 
 !SLIDE
 
-## note: if you put "/collections" in your library...
-### your fingers get broken.
+## &#8727; using `rel` for link names is kind of "standard"
+### ...or at least more well-known
 
 
+!SLIDE
+
+## &#8727; using `rel` for link names is kind of "standard"
+### or at least more well-known
+### (ie: i've never seen the approach i showed in a json api)
+
+
+!SLIDE
+
+# why didn't we use `rel` then?
+
+
+!SLIDE
+
+# api documentation
+### testing out cucumber &#8594; RelishApp
+
+!SLIDE
+
+# api documentation
+### testing out cucumber &#8594; RelishApp
+### ...with links to docs in API responses
+
+
+!SLIDE code smaller
+
+    @@@ JavaScript
+    // app/views/landing/index.json_v3 (rendered)
+    {
+      "content": {
+        "links": {
+          "create_collection": {
+            "url": "/collections",
+            "docs": "https://relishapp.com/acnt/prj/feature-url"
+          }
+          ...
+        }
+      }
+    }
+
+
+!SLIDE
+
+# show example
+
+
+!SLIDE
+
+# seems neat...
+### but we've only tested it on ourselves
+
+!SLIDE
+
+# one last note
+### use json objects unless you __know__ the value structure won't change
+
+
+!SLIDE
+
+# one last note
+### use json objects unless you __know__ the value structure won't change
+### (we changed to the `url` and `docs` structure, it required an api version bump)
+
+!SLIDE
+
+# that's all i have.
+### questions/comments?
+
+!SLIDE
+
+# thanks.
