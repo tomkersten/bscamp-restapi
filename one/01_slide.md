@@ -60,12 +60,12 @@
 !SLIDE
 # vendor-specific mime types
 ## all the cool kids are doing it...
-### ([and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2))
+### [and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2)
 
 !SLIDE
 # vendor-specific mime types
 ## all the cool kids are doing it...
-### ([and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2))
+### [and it's kind of in the mime spec](http://tools.ietf.org/html/rfc2048#section-2.1.2)
 ### ...from 15-years ago.
 
 !SLIDE
@@ -84,12 +84,26 @@
 ### Accept: application/vnd.resound.ram+json;version=2
 
 !SLIDE
-# one approach
+# github-style
+### Accept: application/vnd.github.VERSION.raw+json
 
 !SLIDE
+# whatevs at this point
+### (no standard defined)
+
+!SLIDE
+# implementing in rails
+### one approach
+
+!SLIDE small
 ## (quick sidenote)
-## Mime::Type.register "application/pdf", :princely
+## `Mime::Type.register "application/pdf", :princely`
 ### (maps "/resource-id.pdf" &#8594; "show.princely")
+
+!SLIDE small
+## (one more)
+## `ActionView::Template.register_template_handler :princely, JsonifyBuilder`
+### (says to use JsonifyBuilder to render view files ending in "princely")
 
 
 !SLIDE
@@ -111,6 +125,8 @@
     # lib/ram_api.rb
     # light wrapper for API-values in settings.yml
     module RamAPI
+      extend self
+
       def current_version
         Settings.supported_api_versions.max
       end
@@ -135,13 +151,18 @@
       def deprecated_version?(version)
         deprecated_versions.include?(version.to_i)
       end
+
+      def supported_content_type?(content_type)
+        self.supported_content_types.include?(content_type) ||
+        self.deprecated_content_types.include?(content_type)
+      end
     end
 
 !SLIDE code smaller
 
     @@@ Ruby
     # lib/mime_type_registrar.rb
-    # wraps up mime type registration and tracks deprecations
+    # wraps up mime type registration and deprecation tracking
     module MimeTypeRegistrar
       extend self
       BASE_MIME_TYPE = "application/vnd.resound.ram+json"
@@ -201,7 +222,7 @@
 !SLIDE
 
 ## Accept: "vnd/resound.ram+json"
-### renders: "show.json_[current_version]"
+### renders: "show.json_v[current_version]"
 
 
 !SLIDE
@@ -261,6 +282,9 @@
       ...
     end
 
+!SLIDE
+
+## library/client devs can have a test looking for deprecations
 
 !SLIDE
 
@@ -290,12 +314,12 @@
 
 !SLIDE
 
-# Named endpoints
+# named endpoints
 
 
 !SLIDE
 
-# Named endpoints
+# named endpoints
 ## wtf are they?
 
 
@@ -468,3 +492,4 @@
 !SLIDE
 
 # thanks.
+### let's have a beer.
