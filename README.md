@@ -6,6 +6,7 @@ It outlines a few observations from a recent project.
 The slides may be of little use outside the context of the talk, but,
 check it out if you are interested...
 
+You can view the slides online [here](http://tomkersten.github.com/bscamp-restapi/)
 
 I used the showoff gem to create the presentation. To view locally:
 
